@@ -1,9 +1,12 @@
-# Site-AICM
-Website created for an academic project in the Digital Systems course.
+# Site Tutorial AI Control Machines
 
-Members:
-[Michelangelo Morais](https://github.com/Mickeeyym)
-[Paulo Henrique A. de Barros](https://github.com/phabp)
-[Bruno Dornelas](https://github.com/BrunoDornelas2)
-[Wictor Hugo](https://github.com/WictorHugBrandao)
-[Cleyton Hercílio](https://github.com/cleytonhercilio)
+Bem-vindo ao site que te ensina a usar AI do Gemini para comandar o arduino através da resposta dela aos seus comandos!
+---
+
+### 🚀 **Acesse o Site**
+
+Você pode visualizar o site diretamente no seguinte link:
+
+https://brunodornelas2.github.io/Site-AICM/
+
+---

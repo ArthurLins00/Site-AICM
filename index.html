@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="IA, máquinas, machine learning, integrar, Arduino">
+    <title>AI Control Machines</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>AI Control Machines</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#descricao">Descrição</a></li>
+        <li><a href="#esquema-conceitual">Esquema Conceitual</a></li>
+        <li><a href="#componentes">Componentes</a></li>
+        <li><a href="#passo-a-passo">Passo a Passo</a></li>
+        <li><a href="#codigo">Código</a></li>
+        <li><a href="#tutorial">Vídeo Tutorial</a></li>
+        <li><a href="#desafios">Desafios</a></li>
+        <li><a href="#equipe">Equipe</a></li>
+      </ul>
+      
+      <div class="download-container">
+        <a href="AI-Control-Machines-master.zip" class="btn-download"
+          >Download AICM</a
+        >
+      </div>
+    </nav>
+    <main>
+    
+      <section id="descricao" class="fade-in">
+        <h2>Descrição do Projeto</h2>
+        <div class="descricao-item">
+          <strong class="titulo">Motivação:</strong> 
+          <p>A motivação para criar este projeto foi
+          testar a capacidade de uma IA controlar uma máquina de forma constante
+          e sem falhas, contornando a aleatoriedade das respostas que a IA pode
+          gerar e criando um efeito consistente e eficiente.
+          </p>
+        </div>
+        <div class="descricao-item">
+          <strong class="titulo">Objetivo:</strong>  
+          <p>O objetivo do projeto é demonstrar que a
+          integração entre uma IA e outras máquinas pode ser simples quando
+          conceitos de machine learning são aplicados, desmistificando a ideia
+          de que se trata de algo fora da realidade ou impossível.
+          </p>
+        </div>
+        <div class="descricao-item">
+          <strong class="titulo">Contextualização:</strong> 
+          <p>Além disso, o projeto busca mostrar
+          como integrar sistemas de IA no controle de dispositivos com Arduino,
+          ampliando as possibilidades para projetos existentes e abrindo portas
+          para novas iniciativas.
+          </p>
+        </div>
+      </section>
+        
+      <section id="esquema-conceitual" class="fade-in">
+        <h2>Esquema Conceitual - Arduíno</h2>
+        <img src="imgs/esquema_conceitual_arduíno.jpg" alt="esquema arduíno" />
+      </section>
+    
+      <section id="componentes" class="fade-in">
+        <h2>Componentes</h2>
+        <ul>
+          <li>
+            3 LEDs (Amarelo, Verde, Vermelho) - Emite uma luz quando uma
+            corrente o excita (apenas em uma direção, do pino mais longo para o
+            pino mais curto)
+          </li>
+          <li>
+            4 Resistores (3 unidades de 1 KΩ para os LEDs e 1 unidade de 10 KΩ
+            para o sensor DHT) - Limita a corrente elétrica que passa pelo
+            circuito. Para limitar mais ou menos corrente, o valor deste
+            componente pode variar
+          </li>
+          <li>
+            1 Sensor de temperatura e umidade DHT - Um sensor digital com um
+            único fio de sinal, capaz de ler temperatura e umidade
+          </li>
+          <li>
+            12 Jumpers (mínimo possível) - Cabos com conectores nas extremidades
+            que permitem conectar os componentes entre si por meio da protoboard
+          </li>
+          <li>
+            1 Protoboard - Matriz de contato com pontos que permite conectar
+            componentes eletrônicos sem a necessidade de solda
+          </li>
+          <li>
+            1 Placa de Hardware (Arduíno) - Plataforma de prototipagem
+            eletrônica que permite o desenvolvimento de projetos tecnológicos,
+            alterando sua execução baseado no código que estiver salvo em sua
+            memória
+          </li>
+        </ul>
+      </section>
+
+      <section id="passo-a-passo" class="fade-in">
+        <h2>Passo a Passo</h2>
+        <ol>
+        <div class="descricao-item">
+          <li>
+            Instale a IDE do arduino, e o VSCode caso ainda não tenha instalado.
+            <br>
+            No VSCode instale a extensão do Python.
+            <br>
+            <a href="https://www.arduino.cc/en/software" target="_blank">Baixar IDE do Arduino</a>
+            <br>
+            <a href="https://code.visualstudio.com/download" target="_blank">Baixar VSCode</a>
+          </li>
+        </div>
+        <div class="descricao-item">
+          <li>
+            Crie uma chave de API no Gemini: Primeiro crie uma conta ou faça login com sua conta google.
+            <br>
+            Assim que tiver uma conta clique em "Gerar uma chave de API".
+            <br>
+            Na nova aba clique em "Criar chave de API", não esqueça de copiar e salvar o código da chave em um local seguro.
+            <br>
+            <a href="https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br" target="_blank">Chave API Gemini</a>
+          </li>
+        </div>
+        <div class="descricao-item">
+          <li>
+            Baixe os códigos do projeto e extraia a pasta, dentro dela vai encontrar 3 arquivos.
+            <br>
+            O código no arquivo "arduino.ino" você precisa copiar e colar na IDE do arduino.
+            <br>
+            Os arquivos "gemini_arduino.py" e "requirements.txt" copie eles para seu VSCode.
+            <br>
+            Na parte do código que estiver escrito SUA_CHAVE_API substitua pela sua chave API adquirida no site.
+            <br>
+            <a href="AI-Control-Machines-master.zip" class="btn-download">Download AICM</a>
+          </li>
+        </div>
+        <div class="descricao-item">
+          <li>
+            Instale as bibliotecas necessárias do VSCode.
+            <br>
+            No terminal do VSCode coloque o comando: <code>pip install -r requirements.txt</code>
+            <br>
+            Após a instalação estiver concluída reinicie o VSCode.
+            <br>
+            Caso ocorra algum erro com a porta serial ao tentar rodar o código depois, tente desistalar e reinstalar a biblioteca serial
+            <br>
+            <code>pip uninstall pyserial</code>
+            <br>
+            <code>pip install pyserial</code>
+          </li>
+        </div>
+        <div class="descricao-item">
+          <li>
+            Instale as bibliotecas necessárias da IDE do arduino.
+            <br>
+            Defina o arduino com a porta serial como COM3.
+            <br>
+            Baixe os dois arquivos zip abaixo, e clique em 'sketch' na sua IDE do arduino,
+            após isso clique em 'Include Library', e depois 'Add .ZIP library...' agora selecione o arquivo zip baixado aqui, e depois repita o processo para o outro arquivo zip.
+            <br>
+            <a href="Adafruit_Sensor-master.zip">Baixar arquivo ZIP 1</a>
+            <br>
+            <a href="DHT-sensor-library-master.zip">Baixar arquivo ZIP 2</a>
+          </li>
+        </div>
+        <div class="descricao-item">
+          <li>
+            Por fim monte o arduino como mostrado no vídeo referenciado aqui.
+            <br>
+            Execute o código python no VSCode e clique no terminal.
+            <br>
+            <a href="#tutorial" style="text-decoration: none; font-size: 1.1rem;">Vídeo Tutorial ↓</a>
+          </li>
+        </div>
+        </ol>
+      </section>
+
+      <section id="codigo" class="fade-in">
+        <h2>Código</h2>
+        <h3 style="color: var(--cor3)">Código Python</h3>
+        <div class="explicacao">
+<pre><code>import google.generativeai as genai
+import serial
+import time
+import pyttsx3
+import speech_recognition as sr
+import keyboard</code></pre>
+        </div>
+        <p class="expl_text">Importa as bibliotecas</p>
+        <div class="explicacao">
+          <pre><code>def main():
+            assistente_falante = True
+            ligar_microfone = True
+            arduino = serial.Serial('COM3', 9600)
+            time.sleep(2)
+        
+            genai.configure(api_key="SUA_CHAVE_API")
+            
+            model = genai.GenerativeModel('gemini-pro')
+            chat = model.start_chat(history=[])
+        
+            contexto = "A partir de agora, eu atuarei como um sistema de controle para o Arduino, Tenho controle sobre LEDs e outros componentes, mas não posso acessar diretamente sensores de temperatura ou umidade. Quando um sensor de temperatura ou umidade for mencionado, eu apenas transmitirei as informações coletadas por um sensor conectado ao Arduino. Quando for mencionado leds eu respondo diretamente com comandos de ativação e desativação dos LEDs e outros componentes, sem formatação adicional como *. Responderei com palavras-chave claras para cada ação, apenas com 'led verde ligando', 'led verde desligando', 'led vermelho ligando', 'led vermelho desligando', 'led amarelo ligando', 'led amarelo desligando', para que o código interprete e execute corretamente cada comando. Se eu receber algo que não esteja relacionado a comandos, responderei de maneira simpática."
+        
+            if assistente_falante:
+                engine = pyttsx3.init()
+                voices = engine.getProperty('voices')
+                engine.setProperty('voice', voices[0].id)
+        
+            if ligar_microfone:
+                r = sr.Recognizer()
+                mic = sr.Microphone()</code></pre>
+        </div>
+        <p class="expl_text">
+          Configura o sistema para funcionar pelo sistema de voz, reconhecendo palavras e retornando áudio.
+         <br>
+          Define a porta serial à qual o Arduino vai se conectar; no código atual, está configurada como COM3. Configure essa porta conforme desejado.
+          <br>
+          Configura o Gemini e cria uma variável chamada "contexto". Nessa variável, são aplicados conceitos de machine learning para que a IA execute o código conforme o planejado. Caso a IA não responda adequadamente, tente modificar o texto.
+          </p>
+        <div class="explicacao">
+          <pre>
+            <code>
+while True:
+  print("Pressione 'barra de espaço' para começar a falar.")
+      
+  keyboard.wait('space')
+      
+  if ligar_microfone:
+    with mic as fonte:
+      r.adjust_for_ambient_noise(fonte)
+      print("Fale alguma coisa")
+      audio = r.listen(fonte)
+      try:
+        texto = r.recognize_google(audio, language="pt-BR")
+      except Exception:
+        texto = ""
+          
+  full_input = contexto + "\nUsuário: " + texto</code>
+          </pre>
+        </div>
+        <p class="expl_text">
+          Define que necessita clicar na barra de espaço para a IA começar a reconhecer o pedido.
+          <br>
+          O comando enviado pelo usuário se torna uma variável chamada 'texto' que se junta a outra varável chamada de 'full_input'.
+        </p>
+        <div class="explicacao">
+          <pre>
+<code>if "temperatura" in texto.lower() or "umidade" in texto.lower():
+  arduino.write(b'leitura_tempUmid\n')
+  
+  temperatura = None
+  umidade = None
+
+  while temperatura is None or umidade is None:
+      if arduino.in_waiting > 0:
+          linha = arduino.readline().decode().strip()
+
+          if linha:
+              if temperatura is None:
+                  temperatura = linha
+              elif umidade is None:
+                  umidade = linha
+
+  if temperatura and umidade:
+      print(f"Temperatura: {temperatura}°C, Umidade: {umidade}%")
+      full_input += f"\nTemperatura atual: {temperatura}°C"
+      full_input += f"\nUmidade atual: {umidade}%"
+  else:
+      print("Erro na leitura da temperatura ou umidade.")</code>
+          </pre>
+        </div>
+        <p class="expl_text">
+          Quando perceber que o usuário mencionou as palavras "temperatura" ou "umidade", o código envia um sinal para o Arduino medir esses valores.
+          <br>
+          Enquanto o Arduino não terminar de enviar esses dois valores, o código permanece em loop.
+          <br>
+          Após receber os valores, as novas informações são adicionadas à variável "full_input".
+        </p>
+        <div class="explicacao">
+          <pre>
+<code>response = chat.send_message(full_input)
+        print("Gemini:", response.text)
+
+        if "led verde ligando" in response.text.lower():
+            arduino.write(b'led_verde_ligando\n')
+        if "led verde desligando" in response.text.lower():
+            arduino.write(b'led_verde_desligando\n')
+        if "led vermelho ligando" in response.text.lower():
+            arduino.write(b'led_vermelho_ligando\n')
+        if "led vermelho desligando" in response.text.lower():
+            arduino.write(b'led_vermelho_desligando\n')
+        if "led amarelo ligando" in response.text.lower():
+            arduino.write(b'led_amarelo_ligando\n')
+        if "led amarelo desligando" in response.text.lower():
+            arduino.write(b'led_amarelo_desligando\n')
+        
+        if assistente_falante:
+            engine.say(response.text)
+            engine.runAndWait()
+
+if __name__ == '__main__':
+    main()</code>
+          </pre>
+        </div>
+        <p class="expl_text">
+          Em seguida, é feita a requisição para a API do Gemini.
+          <br>
+          Dependendo das respostas que a IA retornar sobre os LEDs, um comando diferente será enviado para o Arduino.
+        </p>
+        <h3 style="color: var(--cor3)">Código Arduino</h3>
+        <div class="explicacao">
+          <pre>
+<code>#include "DHT.h"
+
+const int pino_dht = 9;
+float temperatura;
+float umidade;
+DHT dht(pino_dht, DHT11);
+const int ledPinG = 7;
+const int ledPinR = 6;
+const int ledPinY = 5;</code>
+          </pre>
+        </div>
+        <p class="expl_text">
+          Cria as variáveis do projeto.
+        </p>
+        <div class="explicacao">
+          <pre>
+<code>void setup() {
+  Serial.begin(9600);
+  pinMode(ledPinG, OUTPUT);
+  pinMode(ledPinR, OUTPUT);
+  pinMode(ledPinY, OUTPUT);
+  dht.begin();
+}</code>
+          </pre>
+        </div>
+        <p class="expl_text">
+          Configura o setup com os componentes usados.
+        </p>
+        <div class="explicacao">
+          <pre>
+<code>void loop() {
+  temperatura = dht.readTemperature();
+  umidade = dht.readHumidity();
+
+  if (Serial.available()) {
+    String comando = Serial.readStringUntil('\n');
+    if (comando == "leitura_tempUmid") {
+      float temperatura = dht.readTemperature();
+      float umidade = dht.readHumidity();
+      
+      if (isnan(temperatura) || isnan(umidade)) {
+        Serial.println("Erro ao ler o sensor");
+      } else {
+        Serial.println(temperatura, 2);
+        Serial.println(umidade, 2);
+      }
+      delay(200);
+    }
+
+    if (comando == "led_verde_ligando") {
+      digitalWrite(ledPinG, HIGH);
+    } else if (comando == "led_verde_desligando") {
+      digitalWrite(ledPinG, LOW);
+    }
+    if (comando == "led_vermelho_ligando") {
+      digitalWrite(ledPinR, HIGH);
+    } else if (comando == "led_vermelho_desligando") {
+      digitalWrite(ledPinR, LOW);
+    }
+    if (comando == "led_amarelo_ligando") {
+      digitalWrite(ledPinY, HIGH);
+    } else if (comando == "led_amarelo_desligando") {
+      digitalWrite(ledPinY, LOW);
+    }
+  }
+}</code>
+          </pre>
+        </div>
+        <p class="expl_text">
+          Esse loop executa os comandos recebidos pelo código python, ativando e desativando os LEDs, ou ativando o sensor DHT.
+        </p>
+        <p>
+          <a
+            href="https://github.com/BrunoDornelas2/AI-Control-Machines"
+            target="_blank"
+            rel="noopener"
+            >Repositório Completo</a
+          >
+        </p>
+      </section>
+
+      <section id="tutorial" class="fade-in">
+        <h2>Vídeo Tutorial</h2>
+          <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/pXdUuizhvtI?si=TDe9B4BJ_35e5V6Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+      </section>
+
+  
+      <section id="desafios" class="fade-in">
+        <h2>Desafios</h2>
+        <p>
+          O principal desafio foi criar algo que ainda não havia sido feito e,
+          por esse motivo, não havia guias explicativos de como criar. A forma
+          de superar esse desafio foi imaginar possíveis soluções para fazer o
+          sistema funcionar e testar, refinando o processo a cada tentativa.
+        </p>
+        <p>
+          Dessa forma, a principal lição desse projeto é perceber que não
+          precisamos ficar restritos a copiar o que já foi feito. Se você tem
+          uma ideia interessante, estude como transformá-la em realidade, mesmo
+          que outros ainda não tenham feito.
+        </p>
+      </section>
+   
+      <section id="equipe" class="fade-in">
+        <h2>Equipe</h2>
+        <div class="equipe-container">
+          <div class="membro">
+            <img src="imgs/BrunoDornelas.jpg" alt="Bruno Dornelas" />
+            <h3>Bruno Dornelas</h3>
+            <p>
+              <a
+                href="https://github.com/BrunoDornelas2"
+                target="_blank"
+                rel="noopener"
+                >GitHub</a
+              >
+              |
+              <a
+                href="https://www.linkedin.com/in/bruno-dornelas-423b38174/"
+                rel="noopener"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </p>
+          </div>
+
+          <div class="membro">
+            <img src="imgs/MichelangeloMorais.jpg" alt="Michelangelo Morais" />
+            <h3>Michelangelo Morais</h3>
+            <p>
+              <a
+                href="https://github.com/Mickeeyym"
+                target="_blank"
+                rel="noopener"
+                >GitHub</a
+              >
+              |
+              <a
+                href="https://www.linkedin.com/in/michelangelomorais/"
+                target="_blank"
+                rel="noopener"
+                >LinkedIn</a
+              >
+            </p>
+          </div>
+
+          <div class="membro">
+            <img src="imgs/ArthurBorba.jpg" alt="Arthur Borba" />
+            <h3>Arthur Borba</h3>
+            <p>
+              <a
+                href="https://github.com/ArthurLins00"
+                target="_blank"
+                rel="noopener"
+                >GitHub</a
+              >
+              |
+              <a
+                href="https://www.linkedin.com/in/arthur-lins-1695b222b/"
+                rel="noopener"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </p>
+          </div>
+
+          <div class="membro">
+            <img src="imgs/PauloHenrique.jpeg" alt="Paulo Henrique" />
+            <h3>Paulo Henrique Barros</h3>
+            <p>
+              <a href="https://github.com/phabp" target="_blank" rel="noopener"
+                >GitHub</a
+              >
+              |
+              <a
+                href="https://www.linkedin.com/in/paulo-henrique-a-de-barros-bb6b72322/"
+                target="_blank"
+                rel="noopener"
+                >LinkedIn</a
+              >
+            </p>
+          </div>
+
+          <div class="membro">
+            <img src="./imgs/WictorHugo.jpg" alt="Wictor Hugo" />
+            <h3>Wictor Hugo</h3>
+            <p>
+              <a
+                href="https://github.com/wictorHugoCM"
+                target="_blank"
+                rel="noopener"
+                >GitHub</a
+              >
+              |
+              <a
+                href="https://www.linkedin.com/in/wictor-hugo-0aa349339/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+                target="_blank"
+                rel="noopener"
+                >LinkedIn</a
+              >
+            </p>
+          </div>
+
+          <div class="membro">
+            <img src="imgs/CleytonHercilio.jpeg" alt="Cleyton Hercílio" />
+            <h3>Cleyton Hercílio</h3>
+            <p>
+              <a
+                href="https://github.com/wictorHugoCM"
+                target="_blank"
+                rel="noopener"
+                >GitHub</a
+              >
+              |
+              <a
+                href="https://github.com/cleytonhercilio"
+                target="_blank"
+                rel="noopener"
+                >LinkedIn</a
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p style="color: white">&copy; 2024 - AI Control Machines</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
